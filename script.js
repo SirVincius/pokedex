@@ -1,6 +1,10 @@
 window.onload = async () => {
-  const pokemons = await fetchPokemons();
-  logFetchedPokemons(pokemons);
+  const list = await getPokemonListNames(151);
+  console.log(list);
+  const pokemonData = await getSpecificPokemon("ivysaur");
+  console.log(pokemonData);
+  const pokemonType = getPokemonTypes(pokemonData);
+  console.log(pokemonType);
 };
 
 async function fetchPokemons(numberOfPokemons = 151) {
@@ -12,13 +16,23 @@ async function fetchPokemons(numberOfPokemons = 151) {
       handleFetchResponseError(response);
     }
     const data = await response.json();
+    console.log(data);
     const pokemons = data.results;
-    console.log(pokemons);
     return pokemons;
   } catch (error) {
     //Handle every error from the data fetching
     handleError(error);
   }
+}
+
+async function getPokemonListNames(numberOfPokemons) {
+  const pokemonList = await fetchPokemons(numberOfPokemons);
+  const pokemonArray = [];
+  pokemonList.map((pokemon) => {
+    pokemonArray.push(pokemon.name);
+  });
+  pokemonArray.sort();
+  return pokemonArray;
 }
 
 function handleError(error) {
@@ -30,13 +44,21 @@ function handleFetchResponseError(response) {
   console.log("Error fetching data" + response.status);
 }
 
-function logFetchedPokemons(pokemons) {
-  const pokemonArray = pokemons.map((pokemon) => {
-    return pokemon.name;
-  });
-  const sortedPokemonArray = pokemonArray.sort();
-  sortedPokemonArray.map((pokemon) => {
-    console.log(pokemon);
-    console.log(pokemon.slice(0, 1).toUpperCase() + pokemon.slice(1));
-  });
+async function getSpecificPokemon(pokemonName) {
+  try {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    );
+    if (!response.ok) {
+      handleFetchResponseError(response);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+function getPokemonTypes(pokemonData) {
+  return pokemonData.types;
 }
