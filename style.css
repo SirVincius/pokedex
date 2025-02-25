@@ -1,0 +1,130 @@
+html {
+  font-size: 24px;
+}
+
+body {
+  min-width: 350px;
+}
+
+select {
+  background-color: white;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+}
+
+#pokemon-image {
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.pokemon-evolution-image {
+  max-height: 100%;
+}
+
+#pokemon-evolutions {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+#pokemon-evolutions > a {
+  height: 100%;
+  min-width: 0;
+  flex: 1;
+  max-width: 100px;
+  border: 0px;
+}
+
+#pokemon-evolutions a img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+/* Common styles for all type labels */
+.type-label {
+  max-width: fit-content;
+  padding: 0.3rem 0.5em 0.3em 0.5em;
+  border-radius: 0.25rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.type-label:first-child {
+  margin-left: 0;
+}
+
+/* Type-specific background colors */
+.fire-type-color {
+  background-color: #f08030;
+}
+
+.water-type-color {
+  background-color: #6890f0;
+}
+
+.electric-type-color {
+  background-color: #f8d030;
+}
+
+.grass-type-color {
+  background-color: #78c850;
+}
+
+.ice-type-color {
+  background-color: #98d8d8;
+}
+
+.fighting-type-color {
+  background-color: #c03028;
+}
+
+.poison-type-color {
+  background-color: #a040a0;
+}
+
+.ground-type-color {
+  background-color: #e0c068;
+}
+
+.flying-type-color {
+  background-color: #a890f0;
+}
+
+.psychic-type-color {
+  background-color: #f85888;
+}
+
+.bug-type-color {
+  background-color: #a8b820;
+}
+
+.rock-type-color {
+  background-color: #b8a038;
+}
+
+.ghost-type-color {
+  background-color: #705898;
+}
+
+.dragon-type-color {
+  background-color: #7038f8;
+}
+
+.dark-type-color {
+  background-color: #705848;
+}
+
+.steel-type-color {
+  background-color: #b8b8d0;
+}
+
+.fairy-type-color {
+  background-color: #ee99ac;
+}
+
+.normal-type-color {
+  background-color: #a8a878;
+}

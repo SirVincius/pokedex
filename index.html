@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <select name="pokemon-select" id="pokemon-select" value="">
+      <option value="" disabled>- Choose a pokemon -</option>
+    </select>
+    <div id="pokemon-image-container">
+      <a id="pokemon-image-link" href="">
+        <img id="pokemon-image" src="" alt="" />
+      </a>
+    </div>
+    <div id="pokemon-evolutions"></div>
+    <div>
+      <h1 id="pokemon-name"></h1>
+      <h2 id="pokemon-id"></h2>
+      <div id="pokemon-types"></div>
+      <div id="pokemon-stats"></div>
+      <p id="pokemon-height"></p>
+      <p id="pokemon-weight"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
